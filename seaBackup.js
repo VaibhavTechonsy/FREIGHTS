@@ -12,7 +12,7 @@ const supabase = createClient(
 (async () => {
     const countries = JSON.parse(await fs.readFile('searates_countries.json', 'utf-8'));
 
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: false, args:['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
 
     // Login process
